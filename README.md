@@ -1,6 +1,6 @@
 # Team Ludking Project
 
-## by: Kurt Reynolds, William Santee, Andre Colon, Cody Lillywhite
+## by: Kurt Reynolds, William Santee, Cody Lillywhite
 
 ### Notes
 
