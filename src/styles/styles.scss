@@ -30,6 +30,20 @@ body {
   .nav-logo {
     width: 6rem;
   }
+
+  .profile-pic {
+    display: flex;
+
+    img {
+      max-width: 8rem;
+      padding: 0.5rem;
+      border-radius: 50%;
+    }
+
+    p {
+      padding: 0.5rem;
+    }
+  }
 }
 
 .landing-row {
@@ -85,65 +99,10 @@ body {
   }
 }
 
-.landing-icon-container {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  ul {
-    list-style: none;
+.edit-profile-row {
+  margin-top: 1rem;
+
+  .edit-profile-col {
+    margin-top: 0.5rem;
   }
-}
-
-.custom-form {
-  display: flex;
-  justify-content: center;
-}
-
-.user-row {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  // .side-dock-col {
-  //   display: flex;
-  //   flex-wrap: wrap;
-  //   // flex-direction: column;
-  //   justify-content: space-evenly;
-  //   margin-left: 0;
-  //   padding: 0;
-  //   background-color: $colorThree;
-
-  //   img {
-  //     max-width: 40%;
-  //     padding: 2%;
-  //   }
-  // }
-
-  .user-form-col {
-    margin-top: 1rem;
-
-    .user-header {
-      display: flex;
-      align-items: flex-end;
-      img {
-        max-width: 10%;
-      }
-    }
-  }
-
-  .feed-col {
-    margin-top: 2rem;
-
-    .feed-header {
-      display: flex;
-      align-items: flex-end;
-      img {
-        max-width: 10%;
-      }
-    }
-  }
-}
-
-.hide-item {
-  display: none;
 }

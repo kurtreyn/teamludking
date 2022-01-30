@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../firebase';
 import { signOut } from 'firebase/auth';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import logo from '../images/icon-lodev.png';
 
-function Navigation({ currentUser }) {
+function Navigation({ currentUser, photoURL, setPhotoURL }) {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
   function logOut() {
     return signOut(auth);
   }
@@ -38,8 +39,9 @@ function Navigation({ currentUser }) {
             </Nav>
           </Navbar.Collapse>
         </Container>
-        <div>
+        <div className="profile-pic">
           {' '}
+          <img src={photoURL} alt="profile picture" />
           <p>{`Signed in as: ${currentUser?.email}`}</p>
         </div>
       </Navbar>
