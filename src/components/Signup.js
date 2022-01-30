@@ -1,24 +1,22 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { login } from "../firebase/auth";
 import { Link } from "react-router-dom";
-
-function Login(props) {
+import { signup } from "../firebase/auth";
+function Signup(props) {
   const { register, handleSubmit, reset } = useForm();
   const [isLoading, setLoading] = useState(false);
 
   const onSubmit = async (data) => {
-    let user;
+    let newUser;
     setLoading(true);
-    console.log(data)
     try {
-      user = await login(data);
+      newUser = await signup(data);
       reset();
     } catch (error) {
       console.log(error);
     }
-    if (user) {
-      console.log(user)
+    if (newUser) {
+      console.log(newUser);
     } else {
       setLoading(false);
     }
@@ -31,6 +29,30 @@ function Login(props) {
       <div className="ui card login-card">
         <div className="content">
           <form className={formClassName} onSubmit={handleSubmit(onSubmit)}>
+            <div className="two fields">
+              <div className="field">
+                <label>
+                  First Name
+                  <input
+                    type="text"
+                    name="firstName"
+                    placeholder="First Name"
+                    {...register("firstName")}
+                  />
+                </label>
+              </div>
+              <div className="field">
+                <label>
+                  Last Name
+                  <input
+                    type="text"
+                    name="lastName"
+                    placeholder="Last Name"
+                    {...register("lastName")}
+                  />
+                </label>
+              </div>
+            </div>
             <div className="field">
               <label>
                 Email
@@ -55,10 +77,10 @@ function Login(props) {
             </div>
             <div className="field actions">
               <button className="ui primary button login" type="submit">
-                Login
+                Sign Up
               </button>
               or
-              <Link to="/signup">Sign up</Link>
+              <Link to="/login">Login</Link>
             </div>
           </form>
         </div>
@@ -67,4 +89,4 @@ function Login(props) {
   );
 }
 
-export default Login;
+export default Signup;
