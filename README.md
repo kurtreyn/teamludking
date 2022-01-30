@@ -13,5 +13,3 @@
 
 - added firebase v9.1.3 as dependency
 - added LandingPage
-- added Login
-- created branch: workingbranch which will be the branch to merge all subsequent branches to before merging into the main branch
