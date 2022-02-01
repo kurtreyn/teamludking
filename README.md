@@ -13,3 +13,6 @@
 
 - added firebase v9.1.3 as dependency
 - added LandingPage
+- if you get a lot of errors after doing a git pull:
+- - delete package-lock.json
+- - run "yarn" in console
