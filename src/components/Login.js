@@ -21,7 +21,7 @@ function Login(props) {
       console.log(error);
     }
     if (user) {
-      console.log(user);
+      console.log(user.displayName);
     } else {
       setLoading(false);
     }
