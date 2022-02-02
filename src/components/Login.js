@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { login } from '../firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 
-function Login(props) {
+function Login({ currentUser, setCurrentUser }) {
   const { register, handleSubmit, reset } = useForm();
   const [isLoading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -22,6 +22,7 @@ function Login(props) {
     }
     if (user) {
       console.log(user.displayName);
+      setCurrentUser(user.displayName);
     } else {
       setLoading(false);
     }

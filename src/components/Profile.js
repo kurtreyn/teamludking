@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Navigation from './Navigation';
 
-function Profile() {
+function Profile({ currentUser, setCurrentUser }) {
   return (
     <>
-      <Navigation />
+      <Navigation currentUser={currentUser} setCurrentUser={setCurrentUser} />
       Profile
     </>
   );

@@ -1,13 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-import { signOut } from 'firebase/auth';
+import { logout } from '../firebase/auth';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import logo from '../images/icon-lodev.png';
 
-function Navigation() {
+function Navigation({ currentUser, setCurrentUser }) {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  async function handleLogOut() {
+    setLoading(true);
+    try {
+      await logout();
+    } catch {
+      alert('Error');
+    }
+    setLoading(false);
+    navigate('/');
+  }
 
   return (
     <>
@@ -19,7 +29,7 @@ function Navigation() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="" onClick="">
+              <Nav.Link href="" onClick={handleLogOut}>
                 Sign Out
               </Nav.Link>
               <Nav.Link href="" onClick="">
@@ -32,6 +42,7 @@ function Navigation() {
           {' '}
           <img src="" alt="profile picture" />
           {/* <p>{`Signed in as: ${user?.email}`}</p> */}
+          <p>{`Signed in as: ${currentUser}`}</p>
         </div>
       </Navbar>
     </>
