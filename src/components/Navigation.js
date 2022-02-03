@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { logout } from '../firebase/auth';
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import logo from '../images/icon-lodev.png';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { logout } from "../firebase/auth";
+import { Navbar, Nav, Container, Dropdown } from "react-bootstrap";
+import logo from "../images/icon-lodev.png";
 
 function Navigation({
   currentUser,
@@ -19,10 +19,10 @@ function Navigation({
     try {
       await logout();
     } catch {
-      alert('Error');
+      alert("Error");
     }
     setLoading(false);
-    navigate('/');
+    navigate("/");
   }
 
   return (
@@ -41,12 +41,45 @@ function Navigation({
               <Nav.Link href="" onClick={handleShow}>
                 Edit Profile
               </Nav.Link>
+              <Dropdown>
+                <Dropdown.Toggle variant="secondary" id="project-dropdown">
+                  Projects
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu variant="dark">
+                  <Dropdown.Item href="#/action-1">
+                    Find a project
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">
+                    Find team members
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">My Projects</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+              <Dropdown>
+                <Dropdown.Toggle variant="secondary" id="mentor-dropdown">
+                  Mentorships
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu variant="dark">
+                  <Dropdown.Item href="#/action-1">
+                    Find a student
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">Find a mentor</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">
+                    My Mentorships
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>
         <div className="profile-pic">
+
+
           {' '}
           <img src={photoURL} alt="profile picture" />
+
           {/* <p>{`Signed in as: ${user?.email}`}</p> */}
           <p>{`Signed in as: ${currentUser}`}</p>
         </div>

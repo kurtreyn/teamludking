@@ -6,8 +6,9 @@ export const createUserDocument = async (user) => {
   const userProfile = {
     uid: user.uid,
     email: user.email,
-    name: user.displayName
+    name: user.displayName,
   };
+
   //Write to cloud firestore
-  return docRef.set(userProfile);
+  docRef.set(userProfile);
 };
