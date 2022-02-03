@@ -8,6 +8,7 @@ import Profile from './Profile';
 
 export default function MainComponent() {
   const [currentUser, setCurrentUser] = useState(null);
+  const [user, setUser] = useState(null);
 
   return (
     <div>
@@ -17,6 +18,8 @@ export default function MainComponent() {
           path="/"
           element={
             <LandingPage
+              user={user}
+              setUser={setUser}
               currentUser={currentUser}
               setCurrentUser={setCurrentUser}
             />
@@ -27,7 +30,12 @@ export default function MainComponent() {
           exact
           path="/signup"
           element={
-            <Signup currentUser={currentUser} setCurrentUser={setCurrentUser} />
+            <Signup
+              user={user}
+              setUser={setUser}
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+            />
           }
         />
         <Route
@@ -35,6 +43,8 @@ export default function MainComponent() {
           path="/profile"
           element={
             <Profile
+              user={user}
+              setUser={setUser}
               currentUser={currentUser}
               setCurrentUser={setCurrentUser}
             />

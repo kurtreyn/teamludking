@@ -5,7 +5,7 @@ import EditProfilePage from './EditProfilePage';
 
 import avatar from '../images/profile-avatar.png';
 
-function Profile({ currentUser, setCurrentUser }) {
+function Profile({ user, setUser, currentUser, setCurrentUser }) {
   const [photoURL, setPhotoURL] = useState(avatar);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -27,6 +27,8 @@ function Profile({ currentUser, setCurrentUser }) {
         </Modal.Header>
         <Modal.Body>
           <EditProfilePage
+           user={user}
+              setUser={setUser}
             currentUser={currentUser}
             photoURL={photoURL}
             setPhotoURL={setPhotoURL}

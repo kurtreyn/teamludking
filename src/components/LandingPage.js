@@ -2,7 +2,7 @@ import React from 'react';
 import Login from './Login';
 import logo from '../images/icon-lodev.png';
 
-function LandingPage({ currentUser, setCurrentUser }) {
+function LandingPage({ user, setUser, currentUser, setCurrentUser }) {
   return (
     <>
       <div className="container-fluid">
@@ -11,7 +11,12 @@ function LandingPage({ currentUser, setCurrentUser }) {
             <img src={logo} alt="logo" />
           </div>
           <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 form-col">
-            <Login currentUser={currentUser} setCurrentUser={setCurrentUser} />
+            <Login
+              user={user}
+              setUser={setUser}
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+            />
           </div>
         </div>
       </div>
