@@ -12,10 +12,8 @@ function Login({ currentUser, setCurrentUser }) {
   const onSubmit = async (data) => {
     let user;
     setLoading(true);
-    console.log(data);
     try {
       user = await login(data);
-      console.log(user);
       reset();
       navigate("/profile");
     } catch (error) {

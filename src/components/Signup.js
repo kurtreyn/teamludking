@@ -11,10 +11,9 @@ function Signup(props) {
 
   const onSubmit = async (data) => {
     let newUser;
-    console.log(data);
     setLoading(true);
-    navigate("/");
     try {
+      console.log(data);
       newUser = await signup(data);
       reset();
       navigate("/");
