@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
-import { Form, Button, Card } from 'react-bootstrap';
-import { signup } from '../firebase/auth';
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import { Form, Button, Card } from "react-bootstrap";
+import { signup, login } from "../firebase/auth";
 
 function Signup(props) {
   const { register, handleSubmit, reset } = useForm();
@@ -11,11 +11,13 @@ function Signup(props) {
 
   const onSubmit = async (data) => {
     let newUser;
+    console.log(data);
     setLoading(true);
+    navigate("/");
     try {
       newUser = await signup(data);
       reset();
-      navigate('/profile');
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -26,7 +28,7 @@ function Signup(props) {
     }
   };
 
-  const formClassName = `ui form ${isLoading ? 'loading' : ''}`;
+  const formClassName = `ui form ${isLoading ? "loading" : ""}`;
 
   return (
     <div className="login-container">
@@ -37,13 +39,13 @@ function Signup(props) {
               <Card.Body>
                 <h2 className="text-center mb-4">Sign Up</h2>
 
-                <Form onSubmit="">
+                <Form>
                   <Form.Group id="first-name" className="mt-2">
                     <Form.Control
                       type="text"
                       placeholder="first name"
                       required
-                      {...register('firstName')}
+                      {...register("firstName")}
                     />
                   </Form.Group>
                   <Form.Group id="last-name" className="mt-2">
@@ -51,7 +53,7 @@ function Signup(props) {
                       type="text"
                       placeholder="last name"
                       required
-                      {...register('lastName')}
+                      {...register("lastName")}
                     />
                   </Form.Group>
                   <Form.Group id="email" className="mt-2">
@@ -59,7 +61,7 @@ function Signup(props) {
                       type="email"
                       placeholder="email"
                       required
-                      {...register('email')}
+                      {...register("email")}
                     />
                   </Form.Group>
                   <Form.Group id="password" className="mt-2">
@@ -67,7 +69,7 @@ function Signup(props) {
                       type="password"
                       placeholder="password"
                       required
-                      {...register('password')}
+                      {...register("password")}
                     />
                   </Form.Group>
 
