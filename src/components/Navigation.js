@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { logout } from "../firebase/auth";
-import { Navbar, Nav, Container, Dropdown } from "react-bootstrap";
-import logo from "../images/icon-lodev.png";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { logout } from '../firebase/auth';
+import { Navbar, Nav, Container, Dropdown } from 'react-bootstrap';
+import logo from '../images/icon-lodev.png';
 
 function Navigation({
+  user,
+  setUser,
   currentUser,
   setCurrentUser,
   photoURL,
@@ -19,10 +21,10 @@ function Navigation({
     try {
       await logout();
     } catch {
-      alert("Error");
+      alert('Error');
     }
     setLoading(false);
-    navigate("/");
+    navigate('/');
   }
 
   return (
@@ -75,11 +77,8 @@ function Navigation({
           </Navbar.Collapse>
         </Container>
         <div className="profile-pic">
-
-
           {' '}
           <img src={photoURL} alt="profile picture" />
-
           {/* <p>{`Signed in as: ${user?.email}`}</p> */}
           <p>{`Signed in as: ${currentUser}`}</p>
         </div>

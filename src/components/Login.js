@@ -10,10 +10,10 @@ function Login({ user, setUser, currentUser, setCurrentUser }) {
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    let loginUser;
+    let user;
     setLoading(true);
     try {
-      loginUser = await login(data);
+      user = await login(data);
 
       reset();
       navigate('/profile');
@@ -22,7 +22,7 @@ function Login({ user, setUser, currentUser, setCurrentUser }) {
     }
     if (user) {
       console.log(user);
-      setUser(loginUser);
+      setUser(user);
       setCurrentUser(user.displayName);
     } else {
       setLoading(false);

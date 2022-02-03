@@ -13,6 +13,8 @@ function Profile({ user, setUser, currentUser, setCurrentUser }) {
   return (
     <>
       <Navigation
+        user={user}
+        setUser={setUser}
         currentUser={currentUser}
         setCurrentUser={setCurrentUser}
         photoURL={photoURL}
@@ -27,8 +29,8 @@ function Profile({ user, setUser, currentUser, setCurrentUser }) {
         </Modal.Header>
         <Modal.Body>
           <EditProfilePage
-           user={user}
-              setUser={setUser}
+            user={user}
+            setUser={setUser}
             currentUser={currentUser}
             photoURL={photoURL}
             setPhotoURL={setPhotoURL}

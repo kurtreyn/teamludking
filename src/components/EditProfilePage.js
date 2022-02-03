@@ -20,14 +20,15 @@ function EditProfilePage({
   }, [user]);
 
   async function upload(file, user, setLoading) {
-    const fileRef = ref(storage, user.uid + '.png');
+    const storageRef = ref(storage, user.uid + '.png');
     setLoading(true);
-    const snapshot = await uploadBytes(fileRef, file);
-    const profilePic = await getDownloadURL(fileRef);
-    updateProfile(user, { profilePic });
+    const snapshot = await uploadBytes(storageRef, file);
+    const photoURL = await getDownloadURL(storageRef);
+    updateProfile(user, { photoURL });
     setLoading(false);
     alert('Upload complete');
-    console.log(profilePic);
+    console.log(photoURL);
+    console.log(user);
   }
 
   function handleChange(e) {
