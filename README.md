@@ -9,6 +9,12 @@
 
   <img src="src/images/README-IMG-react-routes.png" width="500"/>
 
+### 02.02.2022 Updates
+
+- added Firebase Storage
+- added functionality to upload profile picture
+- - need to fix bug as profile picture does not currently stay updated after uploading
+
 ### 02.01.2022 Updates
 
 - put Navigation component on Profile page
