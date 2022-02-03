@@ -4,7 +4,13 @@ import { logout } from '../firebase/auth';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import logo from '../images/icon-lodev.png';
 
-function Navigation({ currentUser, setCurrentUser }) {
+function Navigation({
+  currentUser,
+  setCurrentUser,
+  photoURL,
+  setPhotoURL,
+  handleShow,
+}) {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -32,7 +38,7 @@ function Navigation({ currentUser, setCurrentUser }) {
               <Nav.Link href="" onClick={handleLogOut}>
                 Sign Out
               </Nav.Link>
-              <Nav.Link href="" onClick="">
+              <Nav.Link href="" onClick={handleShow}>
                 Edit Profile
               </Nav.Link>
             </Nav>
@@ -40,7 +46,7 @@ function Navigation({ currentUser, setCurrentUser }) {
         </Container>
         <div className="profile-pic">
           {' '}
-          <img src="" alt="profile picture" />
+          <img src={photoURL} alt="profile picture" />
           {/* <p>{`Signed in as: ${user?.email}`}</p> */}
           <p>{`Signed in as: ${currentUser}`}</p>
         </div>
