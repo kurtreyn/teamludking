@@ -5,16 +5,23 @@ import EditProfilePage from './EditProfilePage';
 
 import avatar from '../images/profile-avatar.png';
 
-function Profile({ user, setUser, currentUser, setCurrentUser }) {
+function Profile({ currentUser, setCurrentUser }) {
   const [photoURL, setPhotoURL] = useState(avatar);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  // console.log(currentUser);
+
+  useEffect(() => {
+    if (currentUser?.photoURL) {
+      setPhotoURL(currentUser.photoURL);
+    }
+  }, [currentUser]);
+
   return (
     <>
       <Navigation
-        user={user}
-        setUser={setUser}
         currentUser={currentUser}
         setCurrentUser={setCurrentUser}
         photoURL={photoURL}
@@ -29,8 +36,6 @@ function Profile({ user, setUser, currentUser, setCurrentUser }) {
         </Modal.Header>
         <Modal.Body>
           <EditProfilePage
-            user={user}
-            setUser={setUser}
             currentUser={currentUser}
             photoURL={photoURL}
             setPhotoURL={setPhotoURL}

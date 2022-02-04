@@ -5,8 +5,6 @@ import { Navbar, Nav, Container, Dropdown } from 'react-bootstrap';
 import logo from '../images/icon-lodev.png';
 
 function Navigation({
-  user,
-  setUser,
   currentUser,
   setCurrentUser,
   photoURL,
@@ -80,7 +78,7 @@ function Navigation({
           {' '}
           <img src={photoURL} alt="profile picture" />
           {/* <p>{`Signed in as: ${user?.email}`}</p> */}
-          <p>{`Signed in as: ${currentUser}`}</p>
+          <p>{`Signed in as: ${currentUser?.displayName}`}</p>
         </div>
       </Navbar>
     </>

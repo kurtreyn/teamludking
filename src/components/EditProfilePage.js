@@ -2,33 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 import { updateProfile } from 'firebase/auth';
 
-function EditProfilePage({
-  user,
-  setUser,
-  currentUser,
-  photoURL,
-  setPhotoURL,
-}) {
+function EditProfilePage({ currentUser, photoURL, setPhotoURL }) {
   const storage = getStorage();
   const [loading, setLoading] = useState(false);
   const [profileImg, setProfileImg] = useState(null);
 
   useEffect(() => {
-    if (user?.photoURL) {
-      setPhotoURL(user.photoURL);
+    if (currentUser?.photoURL) {
+      setPhotoURL(currentUser.photoURL);
     }
-  }, [user]);
+  }, [currentUser]);
 
-  async function upload(file, user, setLoading) {
-    const storageRef = ref(storage, user.uid + '.png');
+  async function upload(file, currentUser, setLoading) {
+    const fileRef = ref(storage, currentUser.uid + '.png');
     setLoading(true);
-    const snapshot = await uploadBytes(storageRef, file);
-    const photoURL = await getDownloadURL(storageRef);
-    updateProfile(user, { photoURL });
+    const snapshot = await uploadBytes(fileRef, file);
+    const photoURL = await getDownloadURL(fileRef);
+    updateProfile(currentUser, { photoURL });
     setLoading(false);
     alert('Upload complete');
     console.log(photoURL);
-    console.log(user);
   }
 
   function handleChange(e) {
