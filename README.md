@@ -9,6 +9,9 @@
 
   <img src="src/images/README-IMG-react-routes.png" width="500"/>
 
+### 02.04.2022 Updates
+- created dev branch for merging subsequent branches into. the dev branch will be merged into main
+
 ### 02.03.2022 Updates
 
 - fix bug for profile picture not staying after upload on profilepicture branch
