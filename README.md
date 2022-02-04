@@ -9,6 +9,10 @@
 
   <img src="src/images/README-IMG-react-routes.png" width="500"/>
 
+### 02.03.2022 Updates
+
+- fix bug for profile picture not staying after upload on profilepicture branch
+
 ### 02.02.2022 Updates
 
 - added Firebase Storage

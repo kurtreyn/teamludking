@@ -17,12 +17,11 @@ function EditProfilePage({ currentUser, photoURL, setPhotoURL }) {
     const fileRef = ref(storage, currentUser.uid + '.png');
     setLoading(true);
     const snapshot = await uploadBytes(fileRef, file);
-    const profilePic = await getDownloadURL(fileRef);
-    updateProfile(currentUser, { profilePic });
+    const photoURL = await getDownloadURL(fileRef);
+    updateProfile(currentUser, { photoURL });
     setLoading(false);
     alert('Upload complete');
-    console.log(profilePic);
-    setPhotoURL(profilePic);
+    console.log(photoURL);
   }
 
   function handleChange(e) {

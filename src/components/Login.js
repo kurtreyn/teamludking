@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { Form, Button, Card } from "react-bootstrap";
-import { useForm } from "react-hook-form";
-import { login } from "../firebase/auth";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { Form, Button, Card } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
+import { login } from '../firebase/auth';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Login({ currentUser, setCurrentUser }) {
   const { register, handleSubmit, reset } = useForm();
@@ -15,19 +15,19 @@ function Login({ currentUser, setCurrentUser }) {
     try {
       user = await login(data);
       reset();
-      navigate("/profile");
+      navigate('/profile');
     } catch (error) {
       console.log(error);
     }
     if (user) {
       console.log(user.displayName);
-      setCurrentUser(user.displayName);
+      setCurrentUser(user);
     } else {
       setLoading(false);
     }
   };
 
-  const formClassName = `ui form ${isLoading ? "loading" : ""}`;
+  const formClassName = `ui form ${isLoading ? 'loading' : ''}`;
 
   return (
     <div className="login-container">
@@ -44,7 +44,7 @@ function Login({ currentUser, setCurrentUser }) {
                       type="email"
                       placeholder="email"
                       required
-                      {...register("email")}
+                      {...register('email')}
                     />
                   </Form.Group>
                   <Form.Group id="password" className="mt-2">
@@ -52,7 +52,7 @@ function Login({ currentUser, setCurrentUser }) {
                       type="password"
                       placeholder="password"
                       required
-                      {...register("password")}
+                      {...register('password')}
                     />
                   </Form.Group>
 
