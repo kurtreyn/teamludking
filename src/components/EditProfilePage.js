@@ -22,6 +22,7 @@ function EditProfilePage({ currentUser, photoURL, setPhotoURL }) {
     setLoading(false);
     alert('Upload complete');
     console.log(photoURL);
+    setPhotoURL(photoURL);
   }
 
   function handleChange(e) {
