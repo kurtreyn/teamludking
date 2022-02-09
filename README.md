@@ -9,6 +9,12 @@
 
   <img src="src/images/README-IMG-react-routes.png" width="500"/>
 
+### 02.06.2022 Updates
+- fixed form error that was showing up in console. could not have one form nested in another. made the correction on the login & signup components.
+- found two bugs
+   - BUG 1: when a user registers an new email account they should be taken to the profile page and the user should be = to newUser in order to show that they are logged in. This does not currently happen.
+   - BUG 2: when a user is logged in, if they refresh the page the user becomes undefined
+
 ### 02.04.2022 Updates
 - created dev branch for merging subsequent branches into. the dev branch will be merged into main
 
