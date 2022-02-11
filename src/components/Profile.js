@@ -5,8 +5,8 @@ import EditProfilePage from './EditProfilePage';
 
 import avatar from '../images/profile-avatar.png';
 
-function Profile({ currentUser, setCurrentUser }) {
-  const [photoURL, setPhotoURL] = useState(avatar);
+function Profile({ currentUser, setCurrentUser, photoURL, setPhotoURL }) {
+  // const [photoURL, setPhotoURL] = useState(avatar);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);

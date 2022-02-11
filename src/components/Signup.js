@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Form, Button, Card } from 'react-bootstrap';
 import { signup, login } from '../firebase/auth';
 
-function Signup(props) {
+function Signup({ currentUser, setCurrentUser }) {
   const { register, handleSubmit, reset } = useForm();
   const [isLoading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -15,6 +15,7 @@ function Signup(props) {
     try {
       console.log(data);
       newUser = await signup(data);
+      console.log(Object.keys(newUser));
       reset();
       navigate('/profile');
     } catch (error) {
@@ -22,7 +23,7 @@ function Signup(props) {
       alert(error.message);
     }
     if (newUser) {
-      console.log(newUser);
+      setCurrentUser(newUser._delegate.auth.currentUser);
     } else {
       setLoading(false);
     }

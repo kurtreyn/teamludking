@@ -10,18 +10,18 @@ function Login({ currentUser, setCurrentUser }) {
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    let user;
+    let userLogin;
     setLoading(true);
     try {
-      user = await login(data);
+      userLogin = await login(data);
       reset();
       navigate('/profile');
     } catch (error) {
       console.log(error);
     }
-    if (user) {
-      console.log(user.displayName);
-      setCurrentUser(user);
+    if (userLogin) {
+      console.log(userLogin);
+      setCurrentUser(userLogin);
     } else {
       setLoading(false);
     }
