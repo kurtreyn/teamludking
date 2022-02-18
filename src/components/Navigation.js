@@ -14,6 +14,14 @@ function Navigation({
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    setCurrentUser(JSON.parse(localStorage.getItem('currentUser')));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+  }, [currentUser]);
+
   async function handleLogOut() {
     setLoading(true);
     try {

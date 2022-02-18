@@ -9,6 +9,10 @@
 
   <img src="src/images/README-IMG-react-routes.png" width="500"/>
 
+### 02.17.2022 Updates - Kurt
+- FIXED: Bug 2 found on 02.06.2022
+- see code in Navigation component with useEffect & local storage
+
 ### 02.10.2022 Updates - Kurt
 
 - FIXED: Bug 1 found on 02.06.2022

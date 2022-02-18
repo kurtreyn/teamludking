@@ -11,7 +11,7 @@ function Profile({ currentUser, setCurrentUser, photoURL, setPhotoURL }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  // console.log(currentUser);
+  console.log(currentUser);
 
   useEffect(() => {
     if (currentUser?.photoURL) {
