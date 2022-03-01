@@ -1,9 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { Modal } from 'react-bootstrap';
-import Navigation from './Navigation';
-import EditProfilePage from './EditProfilePage';
-
-import avatar from '../images/profile-avatar.png';
+import React, { useState, useEffect } from "react";
+import { Modal } from "react-bootstrap";
+import Navigation from "./Navigation";
+import EditProfilePage from "./EditProfilePage";
+import avatar from "../images/profile-avatar.png";
+import {
+  MDBTabs,
+  MDBTabsItem,
+  MDBTabsLink,
+  MDBTabsContent,
+  MDBTabsPane,
+} from "mdb-react-ui-kit";
 
 function Profile({ currentUser, setCurrentUser }) {
   const [photoURL, setPhotoURL] = useState(avatar);
@@ -11,13 +17,21 @@ function Profile({ currentUser, setCurrentUser }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  // console.log(currentUser);
-
   useEffect(() => {
     if (currentUser?.photoURL) {
       setPhotoURL(currentUser.photoURL);
     }
   }, [currentUser]);
+
+  const [basicActive, setBasicActive] = useState("tab1");
+
+  const handleBasicClick = (value: string) => {
+    if (value === basicActive) {
+      return;
+    }
+
+    setBasicActive(value);
+  };
 
   return (
     <>
@@ -28,8 +42,6 @@ function Profile({ currentUser, setCurrentUser }) {
         setPhotoURL={setPhotoURL}
         handleShow={handleShow}
       />
-      Profile Page
-      {/* MODAL TO EDIT PROFILE IMAGE */}
       <Modal className="modal-window" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Edit Profile</Modal.Title>
@@ -42,8 +54,55 @@ function Profile({ currentUser, setCurrentUser }) {
           />
         </Modal.Body>
       </Modal>
+      <MDBTabs className="mb-3" >
+        <MDBTabsItem>
+          <MDBTabsLink
+            onClick={() => handleBasicClick("about")}
+            active={basicActive === "about"}
+          >
+            About
+          </MDBTabsLink>
+        </MDBTabsItem>
+        <MDBTabsItem>
+          <MDBTabsLink
+            onClick={() => handleBasicClick("friends")}
+            active={basicActive === "friends"}
+          >
+            Friends
+          </MDBTabsLink>
+        </MDBTabsItem>
+        <MDBTabsItem>
+          <MDBTabsLink
+            onClick={() => handleBasicClick("skills")}
+            active={basicActive === "skills"}
+          >
+            Skills
+          </MDBTabsLink>
+        </MDBTabsItem>
+        <MDBTabsItem>
+          <MDBTabsLink
+            onClick={() => handleBasicClick("preferences")}
+            active={basicActive === "preferences"}
+          >
+            Preferences
+          </MDBTabsLink>
+        </MDBTabsItem>
+      </MDBTabs>
+
+      <MDBTabsContent>
+        <MDBTabsPane show={basicActive === "about"}>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi quaerat modi quae provident adipisci ipsam, ipsa, assumenda enim sequi laborum soluta architecto. Veritatis, perspiciatis perferendis! Eos, temporibus unde. Totam, iste.</MDBTabsPane>
+        <MDBTabsPane show={basicActive === "friends"}>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste modi explicabo amet iure atque debitis eaque, quas, praesentium aspernatur unde rem similique facere harum, numquam est. Quidem, architecto modi. Maxime.
+        </MDBTabsPane>
+        <MDBTabsPane show={basicActive === "skills"}>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias sint quisquam quasi saepe natus, possimus quidem sunt, facilis blanditiis non eveniet repellat pariatur repellendus ducimus eligendi similique obcaecati laborum delectus.
+        </MDBTabsPane>
+        <MDBTabsPane show={basicActive === "preferences"}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci maiores voluptates consequatur deserunt explicabo sit est. Voluptates ipsam impedit illo consequuntur aliquam? Repellat alias reprehenderit nobis atque odit quisquam commodi.
+        </MDBTabsPane>
+      </MDBTabsContent>
     </>
   );
 }
-
 export default Profile;
