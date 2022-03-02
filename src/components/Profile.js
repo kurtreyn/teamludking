@@ -25,7 +25,7 @@ function Profile({ currentUser, setCurrentUser }) {
 
   const [basicActive, setBasicActive] = useState("tab1");
 
-  const handleBasicClick = (value: string) => {
+  const handleBasicClick = (value) => {
     if (value === basicActive) {
       return;
     }
@@ -54,7 +54,7 @@ function Profile({ currentUser, setCurrentUser }) {
           />
         </Modal.Body>
       </Modal>
-      <MDBTabs className="mb-3" >
+      <MDBTabs className="mb-3">
         <MDBTabsItem>
           <MDBTabsLink
             onClick={() => handleBasicClick("about")}
@@ -91,15 +91,32 @@ function Profile({ currentUser, setCurrentUser }) {
 
       <MDBTabsContent>
         <MDBTabsPane show={basicActive === "about"}>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi quaerat modi quae provident adipisci ipsam, ipsa, assumenda enim sequi laborum soluta architecto. Veritatis, perspiciatis perferendis! Eos, temporibus unde. Totam, iste.</MDBTabsPane>
+          <div
+            class="d-flex flex-row align-items: flex-end;"
+            className="profile-pic"
+          >
+            {" "}
+            <img src={photoURL} alt="profile" />
+            <h1>{currentUser?.displayName}</h1>
+          </div>
+        </MDBTabsPane>
         <MDBTabsPane show={basicActive === "friends"}>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste modi explicabo amet iure atque debitis eaque, quas, praesentium aspernatur unde rem similique facere harum, numquam est. Quidem, architecto modi. Maxime.
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste modi
+          explicabo amet iure atque debitis eaque, quas, praesentium aspernatur
+          unde rem similique facere harum, numquam est. Quidem, architecto modi.
+          Maxime.
         </MDBTabsPane>
         <MDBTabsPane show={basicActive === "skills"}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias sint quisquam quasi saepe natus, possimus quidem sunt, facilis blanditiis non eveniet repellat pariatur repellendus ducimus eligendi similique obcaecati laborum delectus.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias sint
+          quisquam quasi saepe natus, possimus quidem sunt, facilis blanditiis
+          non eveniet repellat pariatur repellendus ducimus eligendi similique
+          obcaecati laborum delectus.
         </MDBTabsPane>
         <MDBTabsPane show={basicActive === "preferences"}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci maiores voluptates consequatur deserunt explicabo sit est. Voluptates ipsam impedit illo consequuntur aliquam? Repellat alias reprehenderit nobis atque odit quisquam commodi.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+          maiores voluptates consequatur deserunt explicabo sit est. Voluptates
+          ipsam impedit illo consequuntur aliquam? Repellat alias reprehenderit
+          nobis atque odit quisquam commodi.
         </MDBTabsPane>
       </MDBTabsContent>
     </>
