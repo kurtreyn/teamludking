@@ -5,9 +5,11 @@ import './Signup';
 import Signup from './Signup';
 import Login from './Login';
 import Profile from './Profile';
+import avatar from '../images/profile-avatar.png';
 
 export default function MainComponent() {
   const [currentUser, setCurrentUser] = useState(null);
+  const [photoURL, setPhotoURL] = useState(avatar);
 
   return (
     <div>
@@ -37,6 +39,8 @@ export default function MainComponent() {
             <Profile
               currentUser={currentUser}
               setCurrentUser={setCurrentUser}
+              photoURL={photoURL}
+              setPhotoURL={setPhotoURL}
             />
           }
         />
