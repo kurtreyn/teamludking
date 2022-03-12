@@ -12,12 +12,12 @@ export default function MainComponent() {
   const [currentUser, setCurrentUser] = useState(
     localStorage.getItem("currentUser")
   );
-  // useEffect(() => {
-  //   if (currentUser?.photoURL) {
-  //     console.log("user changed");
-  //     setCurrentUser(getProfile());
-  //   }
-  // }, [currentUser.photoURL]);
+  useEffect(() => {
+    if (currentUser?.photoURL) {
+      console.log("user changed");
+      setCurrentUser(getProfile());
+    }
+  }, [currentUser.photoURL]);
 
   return (
     <div>
