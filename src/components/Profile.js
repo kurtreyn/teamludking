@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Modal } from "react-bootstrap";
 import Navigation from "./Navigation";
 import EditProfilePage from "./EditProfilePage";
-
 import avatar from "../images/profile-avatar.png";
 
 function Profile({ currentUser, setCurrentUser }) {
