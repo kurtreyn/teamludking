@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import LandingPage from './LandingPage';
-import './Signup';
-import Signup from './Signup';
-import Login from './Login';
-import Profile from './Profile';
-import avatar from '../images/profile-avatar.png';
+import React, { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import LandingPage from "./LandingPage";
+import "./Signup";
+import Signup from "./Signup";
+import Login from "./Login";
+import Profile from "./Profile";
+import { getProfile } from "../firebase/auth";
+import avatar from "../images/profile-avatar.png";
 
 export default function MainComponent() {
-  const [currentUser, setCurrentUser] = useState(null);
-  const [photoURL, setPhotoURL] = useState(avatar);
+  const [currentUser, setCurrentUser] = useState(
+    localStorage.getItem("currentUser")
+  );
+  // useEffect(() => {
+  //   if (currentUser?.photoURL) {
+  //     console.log("user changed");
+  //     setCurrentUser(getProfile());
+  //   }
+  // }, [currentUser.photoURL]);
 
   return (
     <div>
@@ -24,7 +32,13 @@ export default function MainComponent() {
             />
           }
         />
-        <Route exact path="/login" element={<Login />} />
+        <Route
+          exact
+          path="/login"
+          element={
+            <Login currentUser={currentUser} setCurrentUser={setCurrentUser} />
+          }
+        />
         <Route
           exact
           path="/signup"
@@ -39,8 +53,6 @@ export default function MainComponent() {
             <Profile
               currentUser={currentUser}
               setCurrentUser={setCurrentUser}
-              photoURL={photoURL}
-              setPhotoURL={setPhotoURL}
             />
           }
         />

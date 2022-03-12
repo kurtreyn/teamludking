@@ -1,25 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { logout } from '../firebase/auth';
-import { Navbar, Nav, Container, Dropdown } from 'react-bootstrap';
-import logo from '../images/icon-lodev.png';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { logout } from "../firebase/auth";
+import { Navbar, Nav, Container, Dropdown } from "react-bootstrap";
+import logo from "../images/icon-lodev.png";
+import avatar from "../images/profile-avatar.png";
 
-function Navigation({
-  currentUser,
-  setCurrentUser,
-  photoURL,
-  setPhotoURL,
-  handleShow,
-}) {
+function Navigation({ currentUser, setCurrentUser, handleShow }) {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    setCurrentUser(JSON.parse(localStorage.getItem('currentUser')));
+    setCurrentUser(JSON.parse(localStorage.getItem("currentUser")));
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    localStorage.setItem("currentUser", JSON.stringify(currentUser));
   }, [currentUser]);
 
   async function handleLogOut() {
@@ -27,10 +22,10 @@ function Navigation({
     try {
       await logout();
     } catch {
-      alert('Error');
+      alert("Error");
     }
     setLoading(false);
-    navigate('/');
+    navigate("/");
   }
 
   return (
@@ -83,8 +78,12 @@ function Navigation({
           </Navbar.Collapse>
         </Container>
         <div className="profile-pic">
-          {' '}
-          <img src={photoURL} alt="profile picture" />
+          {" "}
+          {currentUser.photoURL ? (
+            <img src={currentUser?.photoURL} alt="profile picture" />
+          ) : (
+            <img src={avatar} alt="profile picture" />
+          )}
           {/* <p>{`Signed in as: ${user?.email}`}</p> */}
           <p>{`Signed in as: ${currentUser?.displayName}`}</p>
         </div>

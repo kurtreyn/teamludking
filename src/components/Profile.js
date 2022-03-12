@@ -1,31 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { Modal } from 'react-bootstrap';
-import Navigation from './Navigation';
-import EditProfilePage from './EditProfilePage';
+import React, { useState, useEffect } from "react";
+import { Modal } from "react-bootstrap";
+import Navigation from "./Navigation";
+import EditProfilePage from "./EditProfilePage";
 
-import avatar from '../images/profile-avatar.png';
+import avatar from "../images/profile-avatar.png";
 
-function Profile({ currentUser, setCurrentUser, photoURL, setPhotoURL }) {
+function Profile({ currentUser, setCurrentUser }) {
   // const [photoURL, setPhotoURL] = useState(avatar);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  console.log(currentUser);
-
-  useEffect(() => {
-    if (currentUser?.photoURL) {
-      setPhotoURL(currentUser.photoURL);
-    }
-  }, [currentUser]);
 
   return (
     <>
       <Navigation
         currentUser={currentUser}
         setCurrentUser={setCurrentUser}
-        photoURL={photoURL}
-        setPhotoURL={setPhotoURL}
         handleShow={handleShow}
       />
       Profile Page
@@ -37,8 +27,7 @@ function Profile({ currentUser, setCurrentUser, photoURL, setPhotoURL }) {
         <Modal.Body>
           <EditProfilePage
             currentUser={currentUser}
-            photoURL={photoURL}
-            setPhotoURL={setPhotoURL}
+            setCurrentUser={setCurrentUser}
           />
         </Modal.Body>
       </Modal>
