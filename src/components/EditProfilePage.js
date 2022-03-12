@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import { updateProfile } from "firebase/auth";
+
 function EditProfilePage({ currentUser, setCurrentUser }) {
   const storage = getStorage();
   const [loading, setLoading] = useState(false);
