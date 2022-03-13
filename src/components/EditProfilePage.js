@@ -52,6 +52,11 @@ function EditProfilePage({ currentUser, setCurrentUser }) {
           <button disabled={loading || !profileImg} onClick={handleClick}>
             Upload
           </button>
+          {loading && (
+            <div class="spinner-border" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          )}
         </div>
       </div>
     </>
