@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import EditProfilePage from "./EditProfilePage";
+<<<<<<< HEAD
+=======
+import avatar from "../images/profile-avatar.png";
+>>>>>>> b77e03541b2371f396c393ca4c249303c9f68587
 
 function Profile({ currentUser, setCurrentUser }) {
   // const [photoURL, setPhotoURL] = useState(avatar);
