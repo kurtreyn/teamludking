@@ -9,11 +9,6 @@ function Navigation({ currentUser, setCurrentUser, handleShow }) {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   setCurrentUser(JSON.parse(localStorage.getItem("currentUser")));
-  //   // console.log(JSON.parse(localStorage.getItem("currentUser")));
-  // }, [currentUser]);
-
   async function handleLogOut() {
     setLoading(true);
     try {
@@ -53,7 +48,9 @@ function Navigation({ currentUser, setCurrentUser, handleShow }) {
                   <Dropdown.Item href="#/action-2">
                     Find team members
                   </Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">My Projects</Dropdown.Item>
+                  <Dropdown.Item href={`${currentUser.uid}/projects`}>
+                    My Projects
+                  </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
               <Dropdown>

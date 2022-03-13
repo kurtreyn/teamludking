@@ -6,6 +6,7 @@ import Signup from "./Signup";
 import Login from "./Login";
 import Profile from "./Profile";
 import Navigation from "./Navigation";
+import ProjectsPage from "./ProjectsPage";
 
 export default function MainComponent() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -51,6 +52,16 @@ export default function MainComponent() {
           path="/profile"
           element={
             <Profile
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+            />
+          }
+        />
+        <Route
+          exact
+          path="/:userId/projects"
+          element={
+            <ProjectsPage
               currentUser={currentUser}
               setCurrentUser={setCurrentUser}
             />
