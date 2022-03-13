@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
-import Navigation from "./Navigation";
 import EditProfilePage from "./EditProfilePage";
-
-import avatar from "../images/profile-avatar.png";
 
 function Profile({ currentUser, setCurrentUser }) {
   // const [photoURL, setPhotoURL] = useState(avatar);
@@ -13,13 +10,11 @@ function Profile({ currentUser, setCurrentUser }) {
 
   return (
     <>
-      <Navigation
-        currentUser={currentUser}
-        setCurrentUser={setCurrentUser}
-        handleShow={handleShow}
-      />
       Profile Page
       {/* MODAL TO EDIT PROFILE IMAGE */}
+      <button href="" onClick={handleShow}>
+        Edit Profile
+      </button>
       <Modal className="modal-window" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Edit Profile</Modal.Title>

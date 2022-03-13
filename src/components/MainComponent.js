@@ -5,22 +5,22 @@ import "./Signup";
 import Signup from "./Signup";
 import Login from "./Login";
 import Profile from "./Profile";
-import { getProfile } from "../firebase/auth";
-import avatar from "../images/profile-avatar.png";
+import Navigation from "./Navigation";
 
 export default function MainComponent() {
-  const [currentUser, setCurrentUser] = useState(
-    localStorage.getItem("currentUser")
-  );
+  const [currentUser, setCurrentUser] = useState(null);
+
   useEffect(() => {
-    if (currentUser?.photoURL) {
-      console.log("user changed");
-      setCurrentUser(getProfile());
-    }
-  }, [currentUser.photoURL]);
+    if (localStorage.getItem("currentUser"))
+      setCurrentUser(JSON.parse(localStorage.getItem("currentUser")));
+    console.log(currentUser);
+  }, []);
 
   return (
     <div>
+      {currentUser && (
+        <Navigation currentUser={currentUser} setCurrentUser={setCurrentUser} />
+      )}
       <Routes>
         <Route
           exact
