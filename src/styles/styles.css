@@ -28,7 +28,7 @@ body {
 .custom-nav .profile-pic img {
   max-width: 8rem;
   padding: 0.5rem;
-  border-radius: 50%;
+  border-radius: 100px;
 }
 
 .custom-nav .profile-pic p {

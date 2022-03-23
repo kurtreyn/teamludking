@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 import { updateProfile } from 'firebase/auth';
 
-function EditProfilePage({ currentUser, photoURL, setPhotoURL }) {
+function EditProfilePage({ currentUser, setPhotoURL }) {
   const storage = getStorage();
   const [loading, setLoading] = useState(false);
   const [profileImg, setProfileImg] = useState(null);

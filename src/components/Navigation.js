@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { logout } from "../firebase/auth";
 import { Navbar, Nav, Container, Dropdown } from "react-bootstrap";
 import logo from "../images/icon-lodev.png";
+import avatar from "../images/profile-avatar.png";
 
 function Navigation({
   currentUser,
   setCurrentUser,
   photoURL,
-  setPhotoURL,
   handleShow,
 }) {
   const [loading, setLoading] = useState(false);
@@ -30,6 +30,7 @@ function Navigation({
       alert("Error");
     }
     setLoading(false);
+    setCurrentUser('null');
     navigate("/");
   }
 

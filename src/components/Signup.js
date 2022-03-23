@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Form, Button, Card } from "react-bootstrap";
 import { signup } from "../firebase/auth";
 
-function Signup({ currentUser, setCurrentUser }) {
+function Signup({ setCurrentUser }) {
   const { register, handleSubmit, reset } = useForm();
   const [isLoading, setLoading] = useState(false);
   const navigate = useNavigate();

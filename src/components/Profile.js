@@ -39,7 +39,6 @@ function Profile({ currentUser, setCurrentUser, photoURL, setPhotoURL }) {
         currentUser={currentUser}
         setCurrentUser={setCurrentUser}
         photoURL={photoURL}
-        setPhotoURL={setPhotoURL}
         handleShow={handleShow}
       />
       <Modal className="modal-window" show={show} onHide={handleClose}>
@@ -92,7 +91,7 @@ function Profile({ currentUser, setCurrentUser, photoURL, setPhotoURL }) {
       <MDBTabsContent>
         <MDBTabsPane show={basicActive === "about"}>
           <div
-            class="d-flex flex-row align-items: flex-end;"
+            // class="d-flex flex-row align-items: flex-end;"
             className="profile-pic"
           >
             {" "}
