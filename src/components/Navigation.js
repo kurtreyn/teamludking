@@ -5,21 +5,16 @@ import { Navbar, Nav, Container, Dropdown } from "react-bootstrap";
 import logo from "../images/icon-lodev.png";
 import avatar from "../images/profile-avatar.png";
 
-function Navigation({
-  currentUser,
-  setCurrentUser,
-  photoURL,
-  handleShow,
-}) {
+function Navigation({ currentUser, setCurrentUser, handleShow }) {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    setCurrentUser(JSON.parse(localStorage.getItem('currentUser')));
+    setCurrentUser(JSON.parse(localStorage.getItem("currentUser")));
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    localStorage.setItem("currentUser", JSON.stringify(currentUser));
   }, [currentUser]);
 
   async function handleLogOut() {
@@ -30,7 +25,6 @@ function Navigation({
       alert("Error");
     }
     setLoading(false);
-    setCurrentUser('null');
     navigate("/");
   }
 
@@ -85,7 +79,12 @@ function Navigation({
         </Container>
         <div className="profile-pic">
           {" "}
-          <img src={photoURL} alt="profile picture" />
+          {currentUser.photoURL ? (
+            <img src={currentUser?.photoURL} alt="profile picture" />
+          ) : (
+            <img src={avatar} alt="profile picture" />
+          )}
+          {/* <p>{`Signed in as: ${user?.email}`}</p> */}
           <p>{`Signed in as: ${currentUser?.displayName}`}</p>
         </div>
       </Navbar>

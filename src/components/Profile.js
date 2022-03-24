@@ -48,8 +48,7 @@ function Profile({ currentUser, setCurrentUser, photoURL, setPhotoURL }) {
         <Modal.Body>
           <EditProfilePage
             currentUser={currentUser}
-            photoURL={photoURL}
-            setPhotoURL={setPhotoURL}
+            setCurrentUser={setCurrentUser}
           />
         </Modal.Body>
       </Modal>
