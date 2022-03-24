@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
-import Navigation from "./Navigation";
 import EditProfilePage from "./EditProfilePage";
 import avatar from "../images/profile-avatar.png";
 import {
