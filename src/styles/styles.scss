@@ -3,10 +3,10 @@ $colorTwo: #77acf1;
 $colorThree: #3edbf0;
 $colorFour: #c0fefc;
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shizuru&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shizuru&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
 body {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 .custom-nav {
@@ -35,9 +35,10 @@ body {
     display: flex;
 
     img {
-      max-width: 8rem;
+      width: 5rem;
+      height: 5rem;
       padding: 0.5rem;
-      border-radius: 50%;
+      border-radius: 100px;
     }
 
     p {
@@ -50,7 +51,7 @@ body {
   height: 100vh;
 
   h1 {
-    font-family: 'Shizuru', cursive, sans-serif;
+    font-family: "Shizuru", cursive, sans-serif;
   }
 
   .img-col {

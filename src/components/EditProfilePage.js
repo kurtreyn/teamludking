@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
-import { updateProfile } from "firebase/auth";
+import { updateProfile, getAuth } from "firebase/auth";
 
 function EditProfilePage({ currentUser, setCurrentUser }) {
   const storage = getStorage();
@@ -12,10 +12,24 @@ function EditProfilePage({ currentUser, setCurrentUser }) {
     setLoading(true);
     const snapshot = await uploadBytes(fileRef, file);
     const photoURL = await getDownloadURL(fileRef);
-    updateProfile(currentUser, { photoURL });
-
+    updateProfile(getAuth().currentUser, { photoURL: photoURL })
+      .then(() => {
+        console.log(
+          "profile updated with image\n",
+          getAuth().currentUser.photoURL
+        );
+        alert("Upload complete");
+      })
+      .then(() => {
+        setCurrentUser({ ...getAuth().currentUser });
+      })
+      .then(() => {
+        localStorage.setItem("currentUser", JSON.stringify(currentUser));
+      })
+      .catch((err) => {
+        upload(file, currentUser, setLoading);
+      });
     setLoading(false);
-    alert("Upload complete");
   }
 
   function handleChange(e) {
@@ -38,6 +52,11 @@ function EditProfilePage({ currentUser, setCurrentUser }) {
           <button disabled={loading || !profileImg} onClick={handleClick}>
             Upload
           </button>
+          {loading && (
+            <div class="spinner-border" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          )}
         </div>
       </div>
     </>

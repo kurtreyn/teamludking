@@ -1,10 +1,5 @@
-import React from 'react'
-import Navigation from './Navigation'
+import React from "react";
 
-export default function ProjectsPage({currentUser}) {
-  return (
-    <>
-      Projects Page
-    </>
-  )
+export default function ProjectsPage({ currentUser }) {
+  return <>Projects Page</>;
 }

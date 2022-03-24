@@ -22,8 +22,3 @@ export const login = async ({ email, password }) => {
     .signInWithEmailAndPassword(email, password);
   return resp.user;
 };
-
-export const getProfile = () => {
-  const auth = firebase.auth();
-  return auth.currentUser;
-};
