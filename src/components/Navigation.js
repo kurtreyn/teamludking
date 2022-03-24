@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { logout } from "../firebase/auth";
-import { Navbar, Nav, Container, Dropdown } from "react-bootstrap";
-import logo from "../images/icon-lodev.png";
-import avatar from "../images/profile-avatar.png";
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { logout } from '../firebase/auth'
+import { Navbar, Nav, Container, Dropdown } from 'react-bootstrap'
+import logo from '../images/icon-lodev.png'
+import avatar from '../images/profile-avatar.png'
 
 function Navigation({ currentUser, setCurrentUser, handleShow }) {
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
 
   // useEffect(() => {
   //   setCurrentUser(JSON.parse(localStorage.getItem("currentUser")));
@@ -15,16 +15,16 @@ function Navigation({ currentUser, setCurrentUser, handleShow }) {
   // }, [currentUser]);
 
   async function handleLogOut() {
-    setLoading(true);
+    setLoading(true)
     try {
-      await logout();
+      await logout()
     } catch {
-      alert("Error");
+      alert('Error')
     }
-    setLoading(false);
-    localStorage.removeItem("currentUser");
-    setCurrentUser();
-    navigate("/");
+    setLoading(false)
+    localStorage.removeItem('currentUser')
+    setCurrentUser()
+    navigate('/')
   }
 
   return (
@@ -75,7 +75,7 @@ function Navigation({ currentUser, setCurrentUser, handleShow }) {
           </Navbar.Collapse>
         </Container>
         <div className="profile-pic">
-          {" "}
+          {' '}
           {currentUser?.photoURL ? (
             <img src={currentUser?.photoURL} alt="profile" />
           ) : (
@@ -86,7 +86,7 @@ function Navigation({ currentUser, setCurrentUser, handleShow }) {
         </div>
       </Navbar>
     </>
-  );
+  )
 }
 
-export default Navigation;
+export default Navigation

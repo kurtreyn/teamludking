@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { Modal } from "react-bootstrap";
-import EditProfilePage from "./EditProfilePage";
+import React, { useState } from 'react'
+import { Modal } from 'react-bootstrap'
+import EditProfilePage from './EditProfilePage'
 
 function Profile({ currentUser, setCurrentUser }) {
   // const [photoURL, setPhotoURL] = useState(avatar);
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
   return (
     <>
@@ -27,7 +27,7 @@ function Profile({ currentUser, setCurrentUser }) {
         </Modal.Body>
       </Modal>
     </>
-  );
+  )
 }
 
-export default Profile;
+export default Profile

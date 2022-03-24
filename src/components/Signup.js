@@ -1,35 +1,35 @@
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { Form, Button, Card } from "react-bootstrap";
-import { signup } from "../firebase/auth";
+import React, { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
+import { Form, Button, Card } from 'react-bootstrap'
+import { signup } from '../firebase/auth'
 
 function Signup({ currentUser, setCurrentUser }) {
-  const { register, handleSubmit, reset } = useForm();
-  const [isLoading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  const { register, handleSubmit, reset } = useForm()
+  const [isLoading, setLoading] = useState(false)
+  const navigate = useNavigate()
 
   const onSubmit = async (data) => {
-    let newUser;
-    setLoading(true);
+    let newUser
+    setLoading(true)
     try {
-      console.log(data);
-      newUser = await signup(data);
-      console.log(Object.keys(newUser));
-      reset();
-      navigate("/profile");
+      console.log(data)
+      newUser = await signup(data)
+      console.log(Object.keys(newUser))
+      reset()
+      navigate('/profile')
     } catch (error) {
-      console.log(error);
-      alert(error.message);
+      console.log(error)
+      alert(error.message)
     }
     if (newUser) {
-      setCurrentUser(newUser._delegate.auth.currentUser);
+      setCurrentUser(newUser._delegate.auth.currentUser)
     } else {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
-  const formClassName = `ui form ${isLoading ? "loading" : ""}`;
+  const formClassName = `ui form ${isLoading ? 'loading' : ''}`
 
   return (
     <div className="login-container">
@@ -45,7 +45,7 @@ function Signup({ currentUser, setCurrentUser }) {
                     type="text"
                     placeholder="first name"
                     required
-                    {...register("firstName")}
+                    {...register('firstName')}
                   />
                 </Form.Group>
                 <Form.Group id="last-name" className="mt-2">
@@ -53,7 +53,7 @@ function Signup({ currentUser, setCurrentUser }) {
                     type="text"
                     placeholder="last name"
                     required
-                    {...register("lastName")}
+                    {...register('lastName')}
                   />
                 </Form.Group>
                 <Form.Group id="email" className="mt-2">
@@ -61,7 +61,7 @@ function Signup({ currentUser, setCurrentUser }) {
                     type="email"
                     placeholder="email"
                     required
-                    {...register("email")}
+                    {...register('email')}
                   />
                 </Form.Group>
                 <Form.Group id="password" className="mt-2">
@@ -69,7 +69,7 @@ function Signup({ currentUser, setCurrentUser }) {
                     type="password"
                     placeholder="password"
                     required
-                    {...register("password")}
+                    {...register('password')}
                   />
                 </Form.Group>
 
@@ -87,7 +87,7 @@ function Signup({ currentUser, setCurrentUser }) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Signup;
+export default Signup

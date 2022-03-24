@@ -1,6 +1,6 @@
-import React from 'react';
-import Login from './Login';
-import logo from '../images/icon-lodev.png';
+import React from 'react'
+import Login from './Login'
+import logo from '../images/icon-lodev.png'
 
 function LandingPage({ currentUser, setCurrentUser }) {
   return (
@@ -16,7 +16,7 @@ function LandingPage({ currentUser, setCurrentUser }) {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default LandingPage;
+export default LandingPage

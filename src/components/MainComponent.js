@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
-import LandingPage from "./LandingPage";
-import "./Signup";
-import Signup from "./Signup";
-import Login from "./Login";
-import Profile from "./Profile";
-import Navigation from "./Navigation";
+import React, { useState, useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import LandingPage from './LandingPage'
+import './Signup'
+import Signup from './Signup'
+import Login from './Login'
+import Profile from './Profile'
+import Navigation from './Navigation'
 
 export default function MainComponent() {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null)
 
   useEffect(() => {
-    if (localStorage.getItem("currentUser"))
-      setCurrentUser(JSON.parse(localStorage.getItem("currentUser")));
-    console.log(currentUser);
-  }, []);
+    if (localStorage.getItem('currentUser'))
+      setCurrentUser(JSON.parse(localStorage.getItem('currentUser')))
+    console.log(currentUser)
+  }, [])
 
   return (
     <div>
@@ -58,5 +58,5 @@ export default function MainComponent() {
         />
       </Routes>
     </div>
-  );
+  )
 }

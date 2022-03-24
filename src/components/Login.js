@@ -1,37 +1,37 @@
-import React, { useState } from "react";
-import { Form, Button, Card } from "react-bootstrap";
-import { useForm } from "react-hook-form";
-import { login } from "../firebase/auth";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from 'react'
+import { Form, Button, Card } from 'react-bootstrap'
+import { useForm } from 'react-hook-form'
+import { login } from '../firebase/auth'
+import { Link, useNavigate } from 'react-router-dom'
 
 function Login({ currentUser, setCurrentUser }) {
-  const { register, handleSubmit, reset } = useForm();
-  const [isLoading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  const { register, handleSubmit, reset } = useForm()
+  const [isLoading, setLoading] = useState(false)
+  const navigate = useNavigate()
 
   const onSubmit = async (data) => {
-    let userLogin;
-    setLoading(true);
+    let userLogin
+    setLoading(true)
     try {
-      userLogin = await login(data);
-      reset();
-      navigate("/profile");
+      userLogin = await login(data)
+      reset()
+      navigate('/profile')
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
     if (userLogin) {
-      console.log({ ...userLogin.multiFactor.user });
-      setCurrentUser({ ...userLogin.multiFactor.user });
+      console.log({ ...userLogin.multiFactor.user })
+      setCurrentUser({ ...userLogin.multiFactor.user })
       localStorage.setItem(
-        "currentUser",
+        'currentUser',
         JSON.stringify({ ...userLogin.multiFactor.user })
-      );
+      )
     } else {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
-  const formClassName = `ui form ${isLoading ? "loading" : ""}`;
+  const formClassName = `ui form ${isLoading ? 'loading' : ''}`
 
   return (
     <div className="login-container">
@@ -47,7 +47,7 @@ function Login({ currentUser, setCurrentUser }) {
                     type="email"
                     placeholder="email"
                     required
-                    {...register("email")}
+                    {...register('email')}
                   />
                 </Form.Group>
                 <Form.Group id="password" className="mt-2">
@@ -55,7 +55,7 @@ function Login({ currentUser, setCurrentUser }) {
                     type="password"
                     placeholder="password"
                     required
-                    {...register("password")}
+                    {...register('password')}
                   />
                 </Form.Group>
 
@@ -78,7 +78,7 @@ function Login({ currentUser, setCurrentUser }) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Login;
+export default Login
