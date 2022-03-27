@@ -6,7 +6,7 @@ import Signup from "./Signup";
 import Login from "./Login";
 import Profile from "./Profile";
 import Navigation from "./Navigation";
-import ProjectsPage from "./ProjectsPage";
+import FindAProject from "./FindAProject";
 
 export default function MainComponent() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -59,9 +59,9 @@ export default function MainComponent() {
         />
         <Route
           exact
-          path="/:userId/projects"
+          path="/find-a-project"
           element={
-            <ProjectsPage
+            <FindAProject
               currentUser={currentUser}
               setCurrentUser={setCurrentUser}
             />

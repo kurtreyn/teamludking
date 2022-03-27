@@ -42,10 +42,10 @@ function Navigation({ currentUser, setCurrentUser, handleShow }) {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu variant="dark">
-                  <Dropdown.Item href="#/action-1">
+                  <Dropdown.Item href="/find-a-project">
                     Find a project
                   </Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">
+                  <Dropdown.Item href="#/find-team-members">
                     Find team members
                   </Dropdown.Item>
                   <Dropdown.Item href={`${currentUser.uid}/projects`}>

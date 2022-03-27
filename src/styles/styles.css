@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shizuru&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 body {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 .custom-nav {
@@ -40,7 +40,7 @@ body {
 }
 
 .landing-row h1 {
-  font-family: 'Shizuru', cursive, sans-serif;
+  font-family: "Shizuru", cursive, sans-serif;
 }
 
 .landing-row .img-col {
@@ -48,12 +48,12 @@ body {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
 }
 
 .landing-row .img-col img {
@@ -71,12 +71,12 @@ body {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
 }
 
 .landing-row .form-col .btn-sign-up {
@@ -90,7 +90,7 @@ body {
 
 .landing-row .form-col img:hover {
   -webkit-transform: scale(1.05);
-          transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .edit-profile-row {
@@ -101,3 +101,19 @@ body {
   margin-top: 0.5rem;
 }
 /*# sourceMappingURL=styles.css.map */
+.box {
+  width: 80%;
+  height: fit-content;
+  padding: 20px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+.add-to-search {
+  position: relative;
+  left: 100%;
+  margin: -100px;
+}
+.project-image {
+  width: 100%;
+  height: 150px;
+}
